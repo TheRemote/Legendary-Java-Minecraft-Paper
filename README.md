@@ -7,7 +7,7 @@ The <a href="https://hub.docker.com/r/05jchambers/legendary-java-minecraft-paper
 <br>
 The <a href="https://github.com/TheRemote/Legendary-Bedrock-Container" target="_blank" rel="noopener">Bedrock version of the Docker container is available here</a>.  This is for Java Minecraft.<br>
  
-<h3>Features</h3>
+<h2>Features</h2>
 <ul>
   <li>Sets up fully operational Minecraft server in less than a couple of minutes</li>
   <li>Runs the highly efficient "Paper" Minecraft server</li>
@@ -20,7 +20,7 @@ The <a href="https://github.com/TheRemote/Legendary-Bedrock-Container" target="_
   <li>Runs on all Docker platforms including Raspberry Pi</li>
 </ul>
 
-<h3>Usage</h3>
+<h2>Usage</h2>
 First you must create a named Docker volume.  This can be done with:<br>
 <pre>docker volume create yourvolumename</pre>
 
@@ -36,7 +36,7 @@ With a maximum memory limit in megabytes (optional, prevents crashes on platform
 <pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e MaxMemory=2048 05jchambers/legendary-java-minecraft-paper:latest</pre>
 
 
-<h3>Configuration / Accessing Server Files</h3>
+<h2>Configuration / Accessing Server Files</h2>
 The server data is stored where Docker stores your volumes.  This is typically a folder on the host OS that is shared and mounted with the container.  I'll give the usual locations here but if you're having trouble just do some Googling for your exact platform and you should find where Docker is storing the volume files.<br>
 <br>
 On Linux it's typically available at: <pre>/var/lib/docker/volumes/yourvolumename/_data</pre><br>
@@ -49,7 +49,7 @@ Backups are stored in the "backups" folder<br>
 <br>
 Log files with timestamps are stored in the "logs" folder.
 
-<h3>Plugins</h3>
+<h2>Plugins</h2>
 This is a "Paper" Minecraft server which has plugin compatibility with Paper / Spigot / Bukkit.<br>
 <br>
 Installation is simple.  There is a "plugins" folder on your Docker named volume.<br>
@@ -61,7 +61,7 @@ You just need to drop the extracted version of the plugin (a .jar file) into thi
 Some plugins have dependencies so make sure you read the installation guide first for the plugin you are looking at.<br>
 A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugins">https://dev.bukkit.org/bukkit-plugins</a>
 
-<h3>Buy A Coffee / Donate</h3>
+<h2>Buy A Coffee / Donate</h2>
 <p>People have expressed some interest in this (you are all saints, thank you, truly)</p>
 <ul>
  <li>PayPal: 05jchambers@gmail.com</li>
@@ -70,7 +70,7 @@ A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugin
  <li>Bitcoin (BTC): 3H6wkPnL1Kvne7dJQS8h7wB4vndB9KxZP7</li>
 </ul>
 
-<h3>Update History</h3>
+<h2>Update History</h2>
 <ul>
   <li>May 11th 2022</li>
     <ul>
