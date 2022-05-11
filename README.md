@@ -61,7 +61,7 @@ Log files with timestamps are stored in the "logs" folder.
 <ul>
   <li>May 11th 2022</li>
     <ul>
-        <li>Fixed MaxMemory environment variable (adding missing M for megabytes in -Xmx java parameter)</li>
+        <li>Fixed optional MaxMemory environment variable (adding missing M for megabytes in -Xmx java parameter)</li>
     </ul>
   <li>May 10th 2022</li>
     <ul>
