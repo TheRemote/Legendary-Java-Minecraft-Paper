@@ -1,5 +1,5 @@
 # Minecraft Java Paper Server Docker Container
-# Author: James A. Chambers - https://jamesachambers.com/
+# Author: James A. Chambers - https://jamesachambers.com/legendary-paper-minecraft-java-container/
 # GitHub Repository: https://github.com/TheRemote/Legendary-Java-Minecraft-Paper
 
 # Use current Ubuntu LTS version
