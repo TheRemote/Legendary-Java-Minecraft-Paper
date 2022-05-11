@@ -12,6 +12,7 @@ The <a href="https://github.com/TheRemote/Legendary-Bedrock-Container" target="_
   <li>Sets up fully operational Minecraft server in less than a couple of minutes</li>
   <li>Runs the highly efficient "Paper" Minecraft server</li>
   <li>Uses named Docker volume for safe and easy to access storage of server data files (which enables more advanced Docker features such as automatic volume backups)</li>
+  <li>Plugin support for Paper + Spigot + Bukkit</li>
   <li>Installs and configures OpenJDK 17</li>
   <li>Automatic backups to minecraft/backups when server restarts</li>
   <li>Full logging available in minecraft/logs folder</li>
@@ -47,6 +48,18 @@ Most people will want to edit server.properties.  You can make the changes to th
 Backups are stored in the "backups" folder<br>
 <br>
 Log files with timestamps are stored in the "logs" folder.
+
+<h3>Plugins</h3>
+This is a "Paper" Minecraft server which has plugin compatibility with Paper / Spigot / Bukkit.<br>
+<br>
+Installation is simple.  There is a "plugins" folder on your Docker named volume.<br>
+<br>
+Navigate to your server files on your host operating system (see accessing server files section if you don't know where this is) and you will see the "plugins" folder.<br>
+<br>
+You just need to drop the extracted version of the plugin (a .jar file) into this folder and restart the container.  That's it!<br>
+<br>
+Some plugins have dependencies so make sure you read the installation guide first for the plugin you are looking at.<br>
+A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugins">https://dev.bukkit.org/bukkit-plugins</a>
 
 <h3>Buy A Coffee / Donate</h3>
 <p>People have expressed some interest in this (you are all saints, thank you, truly)</p>
