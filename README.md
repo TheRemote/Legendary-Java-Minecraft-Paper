@@ -29,6 +29,11 @@ With default port:
 <pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 05jchambers/legendary-java-minecraft-paper:latest</pre>
 With custom port:
 <pre>docker run -it -v yourvolumename:/minecraft -p 12345:12345 -e Port=12345 05jchambers/legendary-java-minecraft-paper:latest</pre>
+With a custom Minecraft version (add -e Version=1.X.X, must be present on Paper's API servers to work):
+<pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e Version=1.17.1 05jchambers/legendary-java-minecraft-paper:latest</pre>
+With a maximum memory limit in megabytes (optional, prevents crashes on platforms with limited memory, -e MaxMemory=2048):
+<pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e MaxMemory=2048 05jchambers/legendary-java-minecraft-paper:latest</pre>
+
 
 <h3>Configuration / Accessing Server Files</h3>
 The server data is stored where Docker stores your volumes.  This is typically a folder on the host OS that is shared and mounted with the container.  I'll give the usual locations here but if you're having trouble just do some Googling for your exact platform and you should find where Docker is storing the volume files.<br>
