@@ -1,6 +1,6 @@
 #!/bin/bash
 # Minecraft Server Docker Container Permissions Fix Script
-# Author: James A. Chambers - https://jamesachambers.com/
+# Author: James A. Chambers - https://jamesachambers.com/legendary-paper-minecraft-java-container/
 # GitHub Repository: https://github.com/TheRemote/Legendary-Java-Minecraft-Paper
 
 # Takes ownership of server files to fix common permission errors such as access denied

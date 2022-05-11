@@ -1,6 +1,6 @@
 #!/bin/bash
 # Legendary Paper Minecraft Java Server Docker server startup script using screen
-# Author: James A. Chambers - https://jamesachambers.com/
+# Author: James A. Chambers - https://jamesachambers.com/legendary-paper-minecraft-java-container/
 # GitHub Repository: https://github.com/TheRemote/Legendary-Java-Minecraft-Paper
 
 echo "Paper Minecraft Java Server Docker script by James A. Chambers"

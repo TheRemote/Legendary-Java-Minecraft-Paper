@@ -1,6 +1,6 @@
 #!/bin/bash
 # Legendary Paper Minecraft Java Server Docker script by James A. Chambers - image build time
-# Author: James A. Chambers - https://jamesachambers.com/minecraft-bedrock-edition-ubuntu-dedicated-server-guide/
+# Author: James A. Chambers - https://jamesachambers.com/legendary-paper-minecraft-java-container/
 # GitHub Repository: https://github.com/TheRemote/Legendary-Java-Minecraft-Paper
 
 Install_Java() {
