@@ -72,6 +72,10 @@ A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugin
 
 <h2>Update History</h2>
 <ul>
+  <li>May 12th 2022</li>
+    <ul>
+        <li>Added platform argument to avoid issues on aarch64 platforms</li>
+    </ul>
   <li>May 11th 2022</li>
     <ul>
         <li>Fixed optional MaxMemory environment variable (adding missing M for megabytes in -Xmx java parameter)</li>
