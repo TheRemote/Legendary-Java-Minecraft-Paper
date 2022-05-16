@@ -129,7 +129,7 @@ sed -i "/server-port=/c\server-port=$Port" /minecraft/server.properties
 echo "Starting Minecraft server..."
 
 if [[ -z "$MaxMemory" ]] || [[ "$MaxMemory" -le 0 ]]; then
-    screen -L -Logfile /minecraft/logs/minecraft.$(date +%Y.%m.%d.%H.%M.%S).log -mS minecraft /jre/bin/java -Xms400M -jar /minecraft/paperclip.jar
+    screen -L -Logfile /minecraft/logs/minecraft.$(date +%Y.%m.%d.%H.%M.%S).log -mS minecraft /jre/bin/java -DPaper.IgnoreJavaVersion=true -Xms400M -jar /minecraft/paperclip.jar
 else
-    screen -L -Logfile /minecraft/logs/minecraft.$(date +%Y.%m.%d.%H.%M.%S).log -mS minecraft /jre/bin/java -Xms400M -Xmx${MaxMemory}M -jar /minecraft/paperclip.jar
+    screen -L -Logfile /minecraft/logs/minecraft.$(date +%Y.%m.%d.%H.%M.%S).log -mS minecraft /jre/bin/java -DPaper.IgnoreJavaVersion=true -Xms400M -Xmx${MaxMemory}M -jar /minecraft/paperclip.jar
 fi
