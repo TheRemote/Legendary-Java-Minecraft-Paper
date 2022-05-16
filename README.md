@@ -72,6 +72,10 @@ A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugin
 
 <h2>Update History</h2>
 <ul>
+  <li>May 15th 2022</li>
+    <ul>
+        <li>Added screen -wipe to beginning of start.sh to prevent a startup issue that could occur if there was a "dead" screen instance (thanks grimholme)</li>
+    </ul>
   <li>May 12th 2022</li>
     <ul>
         <li>Added platform argument to avoid issues on aarch64 platforms</li>
