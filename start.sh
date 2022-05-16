@@ -4,7 +4,7 @@
 # GitHub Repository: https://github.com/TheRemote/Legendary-Java-Minecraft-Paper
 
 echo "Paper Minecraft Java Server Docker script by James A. Chambers"
-echo "Latest version always at https://github.com/TheRemote/Legendary-Bedrock-Container"
+echo "Latest version always at https://github.com/TheRemote/Legendary-Java-Minecraft-Paper"
 echo "Don't forget to set up port forwarding on your router!  The default port is 25565"
 
 if [ ! -d '/minecraft' ]; then
