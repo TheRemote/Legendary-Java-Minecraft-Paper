@@ -22,7 +22,7 @@ fi
 echo "Port used: $Port"
 
 # Check if server is already started
-screen -wipe
+ScreenWipe=$(screen -wipe)
 if screen -list | grep -q "\.minecraft"; then
     echo "Server is already started!  Press screen -r minecraft to open it"
     exit 1
