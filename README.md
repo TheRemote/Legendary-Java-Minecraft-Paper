@@ -37,7 +37,17 @@ With a maximum memory limit in megabytes (optional, prevents crashes on platform
 
 
 <h2>Configuration / Accessing Server Files</h2>
-The server data is stored where Docker stores your volumes.  This is typically a folder on the host OS that is shared and mounted with the container.  I'll give the usual locations here but if you're having trouble just do some Googling for your exact platform and you should find where Docker is storing the volume files.<br>
+The server data is stored where Docker stores your volumes.  This is typically a folder on the host OS that is shared and mounted with the container.<br>
+You can find your exact path by typing: <pre>docker volume inspect yourvolumename</pre>  This will give you the fully qualified path to your volume like this:
+<pre>{
+        "CreatedAt": "2022-05-09T21:08:34-06:00",
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/minecraftbe/_data",
+        "Name": "minecraftbe",
+        "Options": {},
+        "Scope": "local"
+    }</pre>
 <br>
 On Linux it's typically available at: <pre>/var/lib/docker/volumes/yourvolumename/_data</pre><br>
 On Windows it's at <pre>C:\ProgramData\DockerDesktop</pre> but may be located at something more like <pre>\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes\</pre>if you are using WSL (Windows Subsystem for Linux<br>
