@@ -82,6 +82,10 @@ A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugin
 
 <h2>Update History</h2>
 <ul>
+  <li>May 17h 2022</li>
+  <ul>
+    <li>Bump Dockerfile base image to ubuntu:latest</li>
+  </ul>
   <li>May 16th 2022</li>
   <ul>
     <li>Add -DPaper.IgnoreJavaVersion=true to allow OpenJDK 17 to run the older Paper Minecraft versions (thanks NotMick)</li>
