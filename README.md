@@ -35,6 +35,14 @@ With a custom Minecraft version (add -e Version=1.X.X, must be present on Paper'
 With a maximum memory limit in megabytes (optional, prevents crashes on platforms with limited memory, -e MaxMemory=2048):
 <pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e MaxMemory=2048 05jchambers/legendary-java-minecraft-paper:latest</pre>
 
+<h2>ARM Platforms (Raspberry Pi, others)</h2>
+The container works fine on these platforms provided you have the following packages installed:<br>
+<ul>
+<li>binfmt-utils</li>
+<li>qemu-user-static</li>
+</ul>
+<br>
+These can be installed with: <pre>sudo apt install qemu-user-static binfmt-support</pre>
 
 <h2>Configuration / Accessing Server Files</h2>
 The server data is stored where Docker stores your volumes.  This is typically a folder on the host OS that is shared and mounted with the container.<br>
@@ -82,7 +90,11 @@ A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugin
 
 <h2>Update History</h2>
 <ul>
-  <li>May 17h 2022</li>
+  <li>May 21st 2022</li>
+  <ul>
+    <li>Add documentation for required ARM packages qemu-user-static and binfmt-support</li>
+  </ul>
+  <li>May 17th 2022</li>
   <ul>
     <li>Bump Dockerfile base image to ubuntu:latest</li>
   </ul>
