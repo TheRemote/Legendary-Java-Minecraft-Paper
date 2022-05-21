@@ -92,6 +92,7 @@ A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugin
 <ul>
   <li>May 21st 2022</li>
   <ul>
+    <li>Added qemu-user-static and binfmt-support to build dependencies</li>
     <li>Add documentation for required ARM packages qemu-user-static and binfmt-support</li>
   </ul>
   <li>May 17th 2022</li>
