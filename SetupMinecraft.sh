@@ -52,4 +52,6 @@ Install_Java() {
   fi
 }
 
-Install_Java 
+Install_Java
+
+rm -rf /var/cache/apt/*

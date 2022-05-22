@@ -2,14 +2,17 @@
 # Author: James A. Chambers - https://jamesachambers.com/legendary-paper-minecraft-java-container/
 # GitHub Repository: https://github.com/TheRemote/Legendary-Java-Minecraft-Paper
 
+# Use latest Ubuntu version for builder
+FROM ubuntu:latest AS builder
+
+# Update apt
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install qemu-user-static binfmt-support apt-utils -yqq && rm -rf /var/cache/apt/*
+
 # Use current Ubuntu LTS version
 FROM --platform=linux/amd64 ubuntu:latest
 
-# Update apt
-RUN apt-get update 
-
 # Fetch dependencies
-RUN DEBIAN_FRONTEND=noninteractive apt-get install sudo curl unzip screen net-tools gawk openssl findutils pigz libcurl4 libc6 libcrypt1 apt-utils libcurl4-openssl-dev ca-certificates qemu-user-static binfmt-support -yqq
+RUN sudo apt update && DEBIAN_FRONTEND=noninteractive apt-get install sudo curl unzip screen net-tools gawk openssl findutils pigz libcurl4 libc6 libcrypt1 apt-utils libcurl4-openssl-dev ca-certificates binfmt-support -yqq && rm -rf /var/cache/apt/*
 
 # Set port environment variable
 ENV Port=25565
@@ -32,9 +35,6 @@ RUN chmod -R +x /scripts/*.sh
 
 # Run SetupMinecraft.sh
 RUN /scripts/SetupMinecraft.sh
-
-# Clean apt
-RUN apt-get clean && apt-get autoclean
 
 # Set entrypoint to start.sh script
 ENTRYPOINT ["/bin/bash", "/scripts/start.sh"]

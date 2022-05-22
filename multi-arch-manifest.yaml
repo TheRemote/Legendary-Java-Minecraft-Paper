@@ -18,10 +18,6 @@ manifests:
     platform:
       architecture: ppc64le
       os: linux
-  - image: 05jchambers/legendary-java-minecraft-paper:riscv64
-    platform:
-      architecture: riscv64
-      os: linux
   - image: 05jchambers/legendary-java-minecraft-paper:s390x
     platform:
       architecture: s390x
