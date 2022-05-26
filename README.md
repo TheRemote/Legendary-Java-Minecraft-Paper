@@ -35,15 +35,6 @@ With a custom Minecraft version (add -e Version=1.X.X, must be present on Paper'
 With a maximum memory limit in megabytes (optional, prevents crashes on platforms with limited memory, -e MaxMemory=2048):
 <pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e MaxMemory=2048 05jchambers/legendary-java-minecraft-paper:latest</pre>
 
-<h2>ARM Platforms (Raspberry Pi, others)</h2>
-The container works fine on these platforms provided you have the following packages installed:<br>
-<ul>
-<li>binfmt-utils</li>
-<li>qemu-user-static</li>
-</ul>
-<br>
-These can be installed with: <pre>sudo apt install qemu-user-static binfmt-support</pre>
-
 <h2>Configuration / Accessing Server Files</h2>
 The server data is stored where Docker stores your volumes.  This is typically a folder on the host OS that is shared and mounted with the container.<br>
 You can find your exact path by typing: <pre>docker volume inspect yourvolumename</pre>  This will give you the fully qualified path to your volume like this:
@@ -51,8 +42,8 @@ You can find your exact path by typing: <pre>docker volume inspect yourvolumenam
         "CreatedAt": "2022-05-09T21:08:34-06:00",
         "Driver": "local",
         "Labels": {},
-        "Mountpoint": "/var/lib/docker/volumes/minecraftbe/_data",
-        "Name": "minecraftbe",
+        "Mountpoint": "/var/lib/docker/volumes/yourvolumename/_data",
+        "Name": "yourvolumename",
         "Options": {},
         "Scope": "local"
     }</pre>
@@ -90,6 +81,10 @@ A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugin
 
 <h2>Update History</h2>
 <ul>
+  <li>May 25th 2022</li>
+  <ul>
+    <li>Updated documentation (additional packages no longer required and a base Docker install will work)</li>
+  </ul>
   <li>May 21st 2022</li>
   <ul>
     <li>Added multiarch support with separate images for each architecture</li>
