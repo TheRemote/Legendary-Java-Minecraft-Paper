@@ -81,6 +81,10 @@ A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugin
 
 <h2>Update History</h2>
 <ul>
+  <li>June 7th 2022</li>
+  <ul>
+    <li>Add docker-compose.yml file for use with Docker Compose</li>
+  </ul>
   <li>May 25th 2022</li>
   <ul>
     <li>Updated documentation (additional packages no longer required and a base Docker install will work)</li>
