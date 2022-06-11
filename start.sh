@@ -109,17 +109,19 @@ else
     # Get latest build
     BuildJSON=$(curl -H "Accept-Encoding: identity" -H "Accept-Language: en" -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4.212 Safari/537.36" https://papermc.io/api/v2/projects/paper/versions/$Version)
     Build=$(echo "$BuildJSON" | rev | cut -d, -f 1 | cut -d] -f 2 | rev)
-    # Fix for if there is only one build in the branch
     if [ -n $(echo "$Build" | grep builds) ]; then
+        # Fix for if there is only one build in the branch
         Build=0
-    fi
-    Build=$(($Build + 0))
-    if [[ $Build != 0 ]]; then
-        echo "Latest paperclip build found: $Build"
-
         curl -H "Accept-Encoding: identity" -H "Accept-Language: en" -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4.212 Safari/537.36" -o paperclip.jar "https://papermc.io/api/v2/projects/paper/versions/$Version/builds/$Build/downloads/paper-$Version-$Build.jar"
     else
-        echo "Unable to retrieve latest Paper build (got result of $Build)"
+        Build=$(($Build + 0))
+        if [[ $Build != 0 ]]; then
+            echo "Latest paperclip build found: $Build"
+
+            curl -H "Accept-Encoding: identity" -H "Accept-Language: en" -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4.212 Safari/537.36" -o paperclip.jar "https://papermc.io/api/v2/projects/paper/versions/$Version/builds/$Build/downloads/paper-$Version-$Build.jar"
+        else
+            echo "Unable to retrieve latest Paper build (got result of $Build)"
+        fi
     fi
 fi
 
