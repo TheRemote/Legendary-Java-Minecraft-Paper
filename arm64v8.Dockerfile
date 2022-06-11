@@ -24,7 +24,7 @@ ENV Port=25565
 ENV MaxMemory=
 
 # Optional Paper Minecraft Version override
-ENV Version="1.18.2"
+ENV Version="1.19"
 
 # IPV4 Ports
 EXPOSE 25565/tcp
