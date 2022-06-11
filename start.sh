@@ -8,16 +8,16 @@ echo "Latest version always at https://github.com/TheRemote/Legendary-Java-Minec
 echo "Don't forget to set up port forwarding on your router!  The default port is 25565"
 
 if [ ! -d '/minecraft' ]; then
-  echo "ERROR:  A named volume was not specified for the minecraft server data.  Please create one with: docker volume create yourvolumename"
-  echo "Please pass the new volume to docker like this:  docker run -it -v yourvolumename:/minecraft"
-  exit 1
+    echo "ERROR:  A named volume was not specified for the minecraft server data.  Please create one with: docker volume create yourvolumename"
+    echo "Please pass the new volume to docker like this:  docker run -it -v yourvolumename:/minecraft"
+    exit 1
 fi
 
 # Randomizer for user agent
 RandNum=$(echo $((1 + $RANDOM % 5000)))
 
 if [ -z "$Port" ]; then
-  Port="25565"
+    Port="25565"
 fi
 echo "Port used: $Port"
 
@@ -50,14 +50,14 @@ else
     DefaultRoute=$(route -n | awk '$4 == "UG" {print $2}')
 fi
 while [ -z "$DefaultRoute" ]; do
-    echo "Network interface not up, will try again in 1 second";
-    sleep 1;
+    echo "Network interface not up, will try again in 1 second"
+    sleep 1
     if [ -e '/sbin/route' ]; then
         DefaultRoute=$(/sbin/route -n | awk '$4 == "UG" {print $2}')
     else
         DefaultRoute=$(route -n | awk '$4 == "UG" {print $2}')
     fi
-    NetworkChecks=$((NetworkChecks+1))
+    NetworkChecks=$((NetworkChecks + 1))
     if [ $NetworkChecks -gt 20 ]; then
         echo "Waiting for network interface to come up timed out - starting server without network connection ..."
         break
@@ -68,8 +68,8 @@ done
 Permissions=$(sudo bash /scripts/fixpermissions.sh -a)
 
 # Back up server
-if [ -d "world" ]; then 
-    if [ -n "`which pigz`" ]; then
+if [ -d "world" ]; then
+    if [ -n "$(which pigz)" ]; then
         echo "Backing up server (all cores) to cd minecraft/backups folder"
         tar -I pigz --exclude='./backups' --exclude='./cache' --exclude='./logs' --exclude='./jre' --exclude='./paperclip.jar' -pvcf backups/$(date +%Y.%m.%d.%H.%M.%S).tar.gz ./*
     else
@@ -80,7 +80,11 @@ fi
 
 # Rotate backups -- keep most recent 10
 if [ -d /minecraft/backups ]; then
-  Rotate=$(pushd /minecraft/backups; ls -1tr | head -n -10 | xargs -d '\n' rm -f --; popd)
+    Rotate=$(
+        pushd /minecraft/backups
+        ls -1tr | head -n -10 | xargs -d '\n' rm -f --
+        popd
+    )
 fi
 
 # Copy config files if this is a brand new server
@@ -112,12 +116,12 @@ else
     if [ -n $(echo "$Build" | grep builds) ]; then
         # Fix for if there is only one build in the branch
         Build=0
+        echo "Latest paperclip build found: $Build"
         curl -H "Accept-Encoding: identity" -H "Accept-Language: en" -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4.212 Safari/537.36" -o paperclip.jar "https://papermc.io/api/v2/projects/paper/versions/$Version/builds/$Build/downloads/paper-$Version-$Build.jar"
     else
         Build=$(($Build + 0))
         if [[ $Build != 0 ]]; then
             echo "Latest paperclip build found: $Build"
-
             curl -H "Accept-Encoding: identity" -H "Accept-Language: en" -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4.212 Safari/537.36" -o paperclip.jar "https://papermc.io/api/v2/projects/paper/versions/$Version/builds/$Build/downloads/paper-$Version-$Build.jar"
         else
             echo "Unable to retrieve latest Paper build (got result of $Build)"
