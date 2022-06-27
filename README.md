@@ -81,6 +81,10 @@ A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugin
 
 <h2>Update History</h2>
 <ul>
+  <li>June 27th 2022</li>
+  <ul>
+    <li>Update base Ubuntu image</li>
+  </ul>
   <li>June 15th 2022</li>
   <ul>
     <li>Fix 1.19 paperclip.jar upgrades</li>
