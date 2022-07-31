@@ -13,7 +13,7 @@ The <a href="https://github.com/TheRemote/Legendary-Bedrock-Container" target="_
   <li>Runs the highly efficient "Paper" Minecraft server</li>
   <li>Uses named Docker volume for safe and easy to access storage of server data files (which enables more advanced Docker features such as automatic volume backups)</li>
   <li>Plugin support for Paper + Spigot + Bukkit</li>
-  <li>Installs and configures OpenJDK 17</li>
+  <li>Installs and configures OpenJDK 18</li>
   <li>Automatic backups to minecraft/backups when server restarts</li>
   <li>Full logging available in minecraft/logs folder</li>
   <li>Updates automatically to the latest version when server is started</li>
