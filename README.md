@@ -1,4 +1,6 @@
 # Legendary Minecraft Java Paper Container- Minecraft Java Edition Paper Dedicated Server for Docker
+<img src="https://jamesachambers.com/wp-content/uploads/2022/05/Minecraft-Docker-Java-1024x576.webp" alt="Legendary Minecraft Java Container">
+
 This is the Docker containerized version of my <a href="https://github.com/TheRemote/RaspberryPiMinecraft">Minecraft Java Paper Dedicated Server for Linux/Raspberry Pi</a> scripts.
 
 My <a href="https://jamesachambers.com/legendary-paper-minecraft-java-container/" target="_blank" rel="noopener">main blog article (and the best place for support) is here</a>.<br>
