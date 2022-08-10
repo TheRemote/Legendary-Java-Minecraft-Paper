@@ -130,6 +130,7 @@ AcceptEULA=$(echo eula=true >eula.txt)
 
 # Change ports in server.properties
 sed -i "/server-port=/c\server-port=$Port" /minecraft/server.properties
+sed -i "/query\.port=/c\query\.port=$Port" /minecraft/server.properties
 
 # Start server
 echo "Starting Minecraft server..."
