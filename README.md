@@ -36,6 +36,8 @@ With a custom Minecraft version (add -e Version=1.X.X, must be present on Paper'
 <pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e Version=1.17.1 05jchambers/legendary-java-minecraft-paper:latest</pre>
 With a maximum memory limit in megabytes (optional, prevents crashes on platforms with limited memory, -e MaxMemory=2048):
 <pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e MaxMemory=2048 05jchambers/legendary-java-minecraft-paper:latest</pre>
+Without using the screen application (useful if the container won't launch saying "Must be connected to a terminal.", will disable some logging features):
+<pre>docker run -it -v yourvolumename:/minecraft -e NoScreen=Y -p 25565:25565 05jchambers/legendary-java-minecraft-paper:latest</pre>
 
 <h2>Configuration / Accessing Server Files</h2>
 The server data is stored where Docker stores your volumes.  This is typically a folder on the host OS that is shared and mounted with the container.<br>
@@ -75,6 +77,9 @@ You just need to drop the extracted version of the plugin (a .jar file) into thi
 Some plugins have dependencies so make sure you read the installation guide first for the plugin you are looking at.<br>
 A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugins">https://dev.bukkit.org/bukkit-plugins</a>
 
+<h2>NoScreen Environment Variable</h2>
+Disables launching the server with the screen application which prevents needing an interactive terminal (but disables some logging): <pre>docker run -it -v yourvolumename:/minecraft -e NoScreen=Y -p 25565:25565 05jchambers/legendary-java-minecraft-paper:latest</pre>
+
 <h2>Buy A Coffee / Donate</h2>
 <p>People have expressed some interest in this (you are all saints, thank you, truly)</p>
 <ul>
@@ -86,6 +91,10 @@ A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugin
 
 <h2>Update History</h2>
 <ul>
+  <li>August 22nd 2022</li>
+    <ul>
+      <li>Add NoScreen environment variable -- disables screen which prevents needing an interactive terminal (but disables some logging)</li>
+    </ul>
   <li>August 17th 2022</li>
     <ul>
       <li>Add XX:-UseAESCTRIntrinsics to java launch line to prevent encryption issue on 10th Gen Intel processors</li>
