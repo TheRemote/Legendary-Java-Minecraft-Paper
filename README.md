@@ -80,6 +80,10 @@ A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugin
 <h2>NoScreen Environment Variable</h2>
 Disables launching the server with the screen application which prevents needing an interactive terminal (but disables some logging): <pre>docker run -it -v yourvolumename:/minecraft -e NoScreen=Y -p 25565:25565 05jchambers/legendary-java-minecraft-paper:latest</pre>
 
+<h2>TZ (timezone) Environment Variable</h2>
+You can change the timezone from the default "America/Denver" to own timezone using this environment variable: <pre>docker run -it -v yourvolumename:/minecraft -e TZ="America/Denver" -p 25565:25565 05jchambers/legendary-java-minecraft-paper:latest</pre>
+A <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">list of Linux timezones is available here</a>
+
 <h2>Buy A Coffee / Donate</h2>
 <p>People have expressed some interest in this (you are all saints, thank you, truly)</p>
 <ul>
@@ -91,6 +95,11 @@ Disables launching the server with the screen application which prevents needing
 
 <h2>Update History</h2>
 <ul>
+  <li>August 29th 2022</li>
+    <ul>
+      <li>Add TZ environment variable to set timezone</li>
+      <li>Add environment variables to docker-compose.yml template</li>
+    </ul>
   <li>August 22nd 2022</li>
     <ul>
       <li>Add NoScreen environment variable -- disables screen which prevents needing an interactive terminal (but disables some logging)</li>
