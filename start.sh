@@ -1,5 +1,5 @@
 #!/bin/bash
-# Legendary Paper Minecraft Java Server Docker server startup script using screen
+# Legendary Paper Minecraft Java Server Docker server startup script
 # Author: James A. Chambers - https://jamesachambers.com/legendary-paper-minecraft-java-container/
 # GitHub Repository: https://github.com/TheRemote/Legendary-Java-Minecraft-Paper
 
@@ -21,20 +21,10 @@ if [ -z "$Port" ]; then
 fi
 echo "Port used: $Port"
 
-# Check if server is already started
-ScreenWipe=$(screen -wipe 2>&1)
-if screen -list | grep -q "\.minecraft"; then
-    echo "Server is already started!  Press screen -r minecraft to open it"
-    exit 1
-fi
-
 # Change directory to server directory
 cd /minecraft
 
-# Create logs/backups/downloads folder if it doesn't exist
-if [ ! -d "/minecraft/logs" ]; then
-    mkdir -p /minecraft/logs
-fi
+# Create folders if they don't exist
 if [ ! -d "/minecraft/downloads" ]; then
     mkdir -p /minecraft/downloads
 fi
@@ -136,17 +126,7 @@ sed -i "/query\.port=/c\query\.port=$Port" /minecraft/server.properties
 echo "Starting Minecraft server..."
 
 if [[ -z "$MaxMemory" ]] || [[ "$MaxMemory" -le 0 ]]; then
-    if [ -z "$NoScreen" ]; then
-        exec screen -L -Logfile /minecraft/logs/minecraft.$(date +%Y.%m.%d.%H.%M.%S).log -mS minecraft /jre/bin/java -XX:+UnlockDiagnosticVMOptions -XX:-UseAESCTRIntrinsics -DPaper.IgnoreJavaVersion=true -Xms400M -jar /minecraft/paperclip.jar
-    else
-        echo "NoScreen switch present -- launching without screen (logging will be negatively impacted)"
-        exec /jre/bin/java -XX:+UnlockDiagnosticVMOptions -XX:-UseAESCTRIntrinsics -DPaper.IgnoreJavaVersion=true -Xms400M -jar /minecraft/paperclip.jar
-    fi
+    exec /jre/bin/java -XX:+UnlockDiagnosticVMOptions -XX:-UseAESCTRIntrinsics -DPaper.IgnoreJavaVersion=true -Xms400M -jar /minecraft/paperclip.jar
 else
-    if [ -z "$NoScreen" ]; then
-        exec screen -L -Logfile /minecraft/logs/minecraft.$(date +%Y.%m.%d.%H.%M.%S).log -mS minecraft /jre/bin/java -XX:+UnlockDiagnosticVMOptions -XX:-UseAESCTRIntrinsics -DPaper.IgnoreJavaVersion=true -Xms400M -Xmx${MaxMemory}M -jar /minecraft/paperclip.jar
-    else
-        echo "NoScreen switch present -- launching without screen (logging will be negatively impacted)"
-        exec /jre/bin/java -XX:+UnlockDiagnosticVMOptions -XX:-UseAESCTRIntrinsics -DPaper.IgnoreJavaVersion=true -Xms400M -Xmx${MaxMemory}M -jar /minecraft/paperclip.jar
-    fi
+    exec /jre/bin/java -XX:+UnlockDiagnosticVMOptions -XX:-UseAESCTRIntrinsics -DPaper.IgnoreJavaVersion=true -Xms400M -Xmx${MaxMemory}M -jar /minecraft/paperclip.jar
 fi
