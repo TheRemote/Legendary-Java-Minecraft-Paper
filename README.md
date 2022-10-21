@@ -39,8 +39,8 @@ Using a different timezone:
 <pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e TZ="America/Denver" --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
 With a daily scheduled restart (specify time in 24 hour format):
 <pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e ScheduleRestart="3:30" --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
-Skipping backups on a certain folder:
-<pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e NoBackup="plugins" --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
+Skipping backups on a certain folder (separate with a comma for multiple):
+<pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e NoBackup="plugins/ftp,plugins/test" --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
 Skipping permissions check:
 <pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e NoPermCheck="Y" --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
 
