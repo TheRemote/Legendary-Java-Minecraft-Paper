@@ -83,8 +83,11 @@ Some plugins have dependencies so make sure you read the installation guide firs
 A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugins">https://dev.bukkit.org/bukkit-plugins</a>
 
 <h2>TZ (timezone) Environment Variable</h2>
-You can change the timezone from the default "America/Denver" to own timezone using this environment variable: <pre>docker run -it -v yourvolumename:/minecraft -e TZ="America/Denver" -p 25565:25565 05jchambers/legendary-java-minecraft-paper:latest</pre>
+You can change the timezone from the default "America/Denver" to own timezone using this environment variable: <pre>docker run -it -v yourvolumename:/minecraft -e TZ="America/Denver" -p 25565:25565 --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
 A <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">list of Linux timezones is available here</a>
+
+<h2>BackupCount Environment Variable</h2>
+By default the server keeps 10 rolling backups that occur each time the container restarts.  You can override this using the BackupCount environment variable:<pre>docker run -it -v yourvolumename:/minecraft -e BackupCount=20 -p 25565:25565 --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
 
 <h2>Troubleshooting Note - Oracle Virtual Machines</h2>
 A very common problem people have with the Oracle Virtual Machine tutorials out there that typically show you how to use a free VM is that the VM is much more difficult to configure than just about any other product / offering out there.<br>
@@ -134,6 +137,11 @@ This can also be done non-persistently with the following ethtool command: <pre>
 
 <h2>Update History</h2>
 <ul>
+  <li>October 21st 2022</li>
+    <ul>
+      <li>Added new environment variable "BackupCount" to control the number of backups the container keeps</li>
+      <li>NoBackup optional environment variable can now be multiple paths to files to skip backups on separated by a comma.  Example:  plugins/test,plugins/test2</li>
+    </ul>
   <li>October 20th 2022</li>
     <ul>
       <li>Added new environment variable "NoBackup" to skip a folder from backup activities</li>
