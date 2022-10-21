@@ -38,7 +38,7 @@ With a maximum memory limit in megabytes (optional, prevents crashes on platform
 Using a different timezone:
 <pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e TZ="America/Denver" --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
 With a daily scheduled restart (specify time in 24 hour format):
-<pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 ScheduleRestart="3:30" --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
+<pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e ScheduleRestart="3:30" --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
 Skipping backups on a certain folder:
 <pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e NoBackup="plugins" --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
 Skipping permissions check:
