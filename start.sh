@@ -76,7 +76,7 @@ fi
 if [ -d "world" ]; then
     if [ -n "$(which pigz)" ]; then
         echo "Backing up server (all cores) to cd minecraft/backups folder"
-        tarArgs=(-I pigz --exclude='./backups' --exclude='./cache' --exclude='./logs' --exclude='./jre' --exclude='./paperclip.jar')
+        tarArgs=(-I pigz --exclude='./backups' --exclude='./cache' --exclude='./logs' --exclude='./paperclip.jar')
         IFS=','
         read -ra ADDR <<< "$NoBackup"
         for i in "${ADDR[@]}"; do
@@ -86,7 +86,7 @@ if [ -d "world" ]; then
         tar "${tarArgs[@]}"
     else
         echo "Backing up server (single core, pigz not found) to cd minecraft/backups folder"
-        tarArgs=(--exclude='./backups' --exclude='./cache' --exclude='./logs' --exclude='./jre' --exclude='./paperclip.jar')
+        tarArgs=(--exclude='./backups' --exclude='./cache' --exclude='./logs' --exclude='./paperclip.jar')
         IFS=','
         read -ra ADDR <<< "$NoBackup"
         for i in "${ADDR[@]}"; do
@@ -152,7 +152,7 @@ sed -i "/query\.port=/c\query\.port=$Port" /minecraft/server.properties
 echo "Starting Minecraft server..."
 
 if [[ -z "$MaxMemory" ]] || [[ "$MaxMemory" -le 0 ]]; then
-    exec /jre/bin/java -XX:+UnlockDiagnosticVMOptions -XX:-UseAESCTRIntrinsics -DPaper.IgnoreJavaVersion=true -Xms400M -jar /minecraft/paperclip.jar
+    exec java -XX:+UnlockDiagnosticVMOptions -XX:-UseAESCTRIntrinsics -DPaper.IgnoreJavaVersion=true -Xms400M -jar /minecraft/paperclip.jar
 else
-    exec /jre/bin/java -XX:+UnlockDiagnosticVMOptions -XX:-UseAESCTRIntrinsics -DPaper.IgnoreJavaVersion=true -Xms400M -Xmx${MaxMemory}M -jar /minecraft/paperclip.jar
+    exec java -XX:+UnlockDiagnosticVMOptions -XX:-UseAESCTRIntrinsics -DPaper.IgnoreJavaVersion=true -Xms400M -Xmx${MaxMemory}M -jar /minecraft/paperclip.jar
 fi
