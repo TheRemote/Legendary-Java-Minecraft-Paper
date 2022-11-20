@@ -83,14 +83,14 @@ Some plugins have dependencies so make sure you read the installation guide firs
 A popular place to get plugins is: <a href="https://dev.bukkit.org/bukkit-plugins">https://dev.bukkit.org/bukkit-plugins</a>
 
 <h2>TZ (timezone) Environment Variable</h2>
-You can change the timezone from the default "America/Denver" to own timezone using this environment variable: <pre>docker run -it -v yourvolumename:/minecraft -e TZ="America/Denver" -p 25565:25565 --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
+You can change the timezone from the default "America/Denver" to own timezone using this environment variable: <pre>docker run -it -v yourvolumename:/minecraft -e TZ="America/Denver" -p 25565:25565 05jchambers/legendary-java-minecraft-paper:latest</pre>
 A <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">list of Linux timezones is available here</a>
 
 <h2>BackupCount Environment Variable</h2>
-By default the server keeps 10 rolling backups that occur each time the container restarts.  You can override this using the BackupCount environment variable:<pre>docker run -it -v yourvolumename:/minecraft -e BackupCount=20 -p 25565:25565 --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
+By default the server keeps 10 rolling backups that occur each time the container restarts.  You can override this using the BackupCount environment variable:<pre>docker run -it -v yourvolumename:/minecraft -e BackupCount=20 -p 25565:25565 05jchambers/legendary-java-minecraft-paper:latest</pre>
 
 <h2>QuietCurl Environment Variable</h2>
-You can use the QuietCurl environment variable to suppress curl's download output.  This will keep your logs tidier but may make it harder to diagnose if something is going wrong.  If things are working well it's safe to enable this option and turn it back off so you can see the output if you need to:<pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -p 19132:19132/udp -p 19132:19132 -e QuietCurl=Y --restart unless-stopped 05jchambers/legendary-minecraft-geyser-floodgate:latest</pre>
+You can use the QuietCurl environment variable to suppress curl's download output.  This will keep your logs tidier but may make it harder to diagnose if something is going wrong.  If things are working well it's safe to enable this option and turn it back off so you can see the output if you need to:<pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -p 19132:19132/udp -p 19132:19132 -e QuietCurl=Y 05jchambers/legendary-java-minecraft-paper:latest</pre>
 
 <h2>Troubleshooting Note - Oracle Virtual Machines</h2>
 A very common problem people have with the Oracle Virtual Machine tutorials out there that typically show you how to use a free VM is that the VM is much more difficult to configure than just about any other product / offering out there.<br>
