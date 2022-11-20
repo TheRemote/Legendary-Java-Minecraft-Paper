@@ -89,6 +89,9 @@ A <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">list of
 <h2>BackupCount Environment Variable</h2>
 By default the server keeps 10 rolling backups that occur each time the container restarts.  You can override this using the BackupCount environment variable:<pre>docker run -it -v yourvolumename:/minecraft -e BackupCount=20 -p 25565:25565 --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
 
+<h2>QuietCurl Environment Variable</h2>
+You can use the QuietCurl environment variable to suppress curl's download output.  This will keep your logs tidier but may make it harder to diagnose if something is going wrong.  If things are working well it's safe to enable this option and turn it back off so you can see the output if you need to:<pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -p 19132:19132/udp -p 19132:19132 -e QuietCurl=Y --restart unless-stopped 05jchambers/legendary-minecraft-geyser-floodgate:latest</pre>
+
 <h2>Troubleshooting Note - Oracle Virtual Machines</h2>
 A very common problem people have with the Oracle Virtual Machine tutorials out there that typically show you how to use a free VM is that the VM is much more difficult to configure than just about any other product / offering out there.<br>
 The symptom you will have is that nobody will be able to connect.<br>
@@ -137,6 +140,11 @@ This can also be done non-persistently with the following ethtool command: <pre>
 
 <h2>Update History</h2>
 <ul>
+  <li>November 19th 2022</li>
+    <ul>
+      <li>Add "QuietCurl" environment variable which will suppress the progress meter on curl keeping the logs much tidier</li>
+      <li>Remove fixpermissions.sh and add 3 lines into main start.sh file</br>
+    </ul>
   <li>November 7th 2022</li>
     <ul>
       <li>Fail immediately if ran without an interactive terminal (as the Minecraft server won't work without one)</li>
