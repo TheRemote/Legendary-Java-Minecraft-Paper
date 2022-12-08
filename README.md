@@ -140,6 +140,10 @@ This can also be done non-persistently with the following ethtool command: <pre>
 
 <h2>Update History</h2>
 <ul>
+  <li>December 7th 2022</li>
+    <ul>
+      <li>Update to 1.19.3</li>
+    </ul>
   <li>November 19th 2022</li>
     <ul>
       <li>Add "QuietCurl" environment variable which will suppress the progress meter on curl keeping the logs much tidier</li>
@@ -200,10 +204,6 @@ This can also be done non-persistently with the following ethtool command: <pre>
       <li>Add enforce-secure-profile=false to default server.properties to prevent login errors</li>
       <li>Add text editor inside the container (nano) for diagnostic/troubleshooting purposes</li>
     </ul>
-  <li>August 6th 2022</li>
-  <ul>
-    <li>Update to 1.19.2</li>
-  </ul>
   <li>August 6th 2022</li>
   <ul>
     <li>Update to 1.19.2</li>
