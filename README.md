@@ -37,8 +37,6 @@ With a maximum memory limit in megabytes (optional, prevents crashes on platform
 <pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e MaxMemory=2048 --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
 Using a different timezone:
 <pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e TZ="America/Denver" --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
-With a daily scheduled restart (specify time in 24 hour format):
-<pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e ScheduleRestart="3:30" --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
 Skipping backups on a certain folder (separate with a comma for multiple):
 <pre>docker run -it -v yourvolumename:/minecraft -p 25565:25565 -e NoBackup="plugins/ftp,plugins/test" --restart unless-stopped 05jchambers/legendary-java-minecraft-paper:latest</pre>
 Skipping permissions check:
@@ -140,6 +138,10 @@ This can also be done non-persistently with the following ethtool command: <pre>
 
 <h2>Update History</h2>
 <ul>
+  <li>January 12th 2023</li>
+    <ul>
+      <li>Remove broken ScheduleRestart environment variable -- this needs to be done in your OS using docker restart (typically with crontab in Linux or Task Scheduler in Windows)</li>
+    </ul>
   <li>December 7th 2022</li>
     <ul>
       <li>Update to 1.19.3</li>
