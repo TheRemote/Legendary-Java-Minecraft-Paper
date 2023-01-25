@@ -138,6 +138,10 @@ This can also be done non-persistently with the following ethtool command: <pre>
 
 <h2>Update History</h2>
 <ul>
+  <li>January 25th 2023</li>
+    <ul>
+      <li>Removed check for terminal and will let the Minecraft server throw an error if environment is not appropriate</li>
+    </ul>
   <li>January 14th 2023</li>
     <ul>
       <li>Change connectivity test from google.com to papermc.io to prevent blocking in certain countries</li>
