@@ -138,6 +138,10 @@ This can also be done non-persistently with the following ethtool command: <pre>
 
 <h2>Update History</h2>
 <ul>
+  <li>March 25th 2023</li>
+    <ul>
+      <li>Migrate paper.yml to paper-global.yml</li>
+    </ul>
   <li>March 16th 2023</li>
     <ul>
       <li>Update to 1.19.4 (make sure you have backups safely saved from your backups folder before upgrading as they are rotated)</li>

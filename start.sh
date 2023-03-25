@@ -28,6 +28,9 @@ cd /minecraft
 if [ ! -d "/minecraft/downloads" ]; then
     mkdir -p /minecraft/downloads
 fi
+if [ ! -d "/minecraft/config" ]; then
+    mkdir -p /minecraft/config
+fi
 if [ ! -d "/minecraft/backups" ]; then
     mkdir -p /minecraft/backups
 fi
@@ -104,8 +107,8 @@ fi
 if [ ! -e "/minecraft/bukkit.yml" ]; then
     cp /scripts/bukkit.yml /minecraft/bukkit.yml
 fi
-if [ ! -e "/minecraft/paper.yml" ]; then
-    cp /scripts/paper.yml /minecraft/paper.yml
+if [ ! -e "/minecraft/config/paper-global.yml" ]; then
+    cp /scripts/paper-global.yml /minecraft/config/paper-global.yml
 fi
 if [ ! -e "/minecraft/spigot.yml" ]; then
     cp /scripts/spigot.yml /minecraft/spigot.yml
