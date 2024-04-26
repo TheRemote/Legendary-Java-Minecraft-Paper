@@ -21,7 +21,7 @@ ENV Port=25565
 ENV MaxMemory=
 
 # Optional Paper Minecraft Version override
-ENV Version="1.20.4"
+ENV Version="1.20.5"
 
 # Optional Timezone
 ENV TZ="America/Denver"
