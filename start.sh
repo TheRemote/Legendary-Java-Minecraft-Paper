@@ -3,6 +3,20 @@
 # Author: James A. Chambers - https://jamesachambers.com/legendary-paper-minecraft-java-container/
 # GitHub Repository: https://github.com/TheRemote/Legendary-Java-Minecraft-Paper
 
+# If running as root, create 'minecraft' user and restart script as 'minecraft' user
+if [ "$(id -u)" = '0' ]; then
+    echo "Script is running as root, switching to 'minecraft' user..."
+
+    if ! id minecraft >/dev/null 2>&1; then
+        echo "Creating 'minecraft' user..."
+        useradd -m -r -s /bin/bash minecraft
+    fi
+
+    chown -R minecraft:minecraft /minecraft
+
+    exec su minecraft -c "$0 $@"
+fi
+
 echo "Paper Minecraft Java Server Docker script by James A. Chambers"
 echo "Latest version always at https://github.com/TheRemote/Legendary-Java-Minecraft-Paper"
 echo "Don't forget to set up port forwarding on your router!  The default port is 25565"
