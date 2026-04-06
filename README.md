@@ -138,6 +138,11 @@ This can also be done non-persistently with the following ethtool command: <pre>
 
 <h2>Update History</h2>
 <ul>
+  <li>April 6th 2026</li>
+    <ul>
+      <li>Update to 26.1.1</li>
+      <li>Update OpenJDK to Version 25 which is required for Minecraft 26.1.x</li>
+    </ul>
   <li>January 25th 2026</li>
     <ul>
       <li>Update to 1.21.11</li>
