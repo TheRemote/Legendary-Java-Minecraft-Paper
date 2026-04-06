@@ -6,7 +6,7 @@
 FROM ubuntu:rolling
 
 # Fetch dependencies
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt-get install openjdk-21-jre-headless tzdata sudo curl unzip net-tools gawk openssl findutils pigz libc6 libcrypt1 apt-utils libcurl4-openssl-dev ca-certificates binfmt-support nano jq -yqq && rm -rf /var/cache/apt/*
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt-get install openjdk-25-jre-headless tzdata sudo curl unzip net-tools gawk openssl findutils pigz libc6 libcrypt1 apt-utils libcurl4-openssl-dev ca-certificates binfmt-support nano jq -yqq && rm -rf /var/cache/apt/*
 
 # Set port environment variable
 ENV Port=25565
@@ -15,7 +15,7 @@ ENV Port=25565
 ENV MaxMemory=
 
 # Optional Paper Minecraft Version override
-ENV Version="1.21.11"
+ENV Version="26.1.1"
 
 # Optional Timezone
 ENV TZ="America/Denver"
