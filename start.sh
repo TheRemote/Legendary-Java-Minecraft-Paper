@@ -144,6 +144,7 @@ fi
 if [ "$?" != 0 ]; then
     echo "Unable to connect to update website (internet connection may be down).  Skipping update ..."
 else
+    Build=$(curl -s -L "https://fill.papermc.io/v3/projects/paper/versions/$Version" | jq -r '.builds[0]' 2>/dev/null)
     if [[ -n "$Build" && "$Build" != "null" ]]; then
         echo "Latest paperclip build found: $Build"
         # Get the SHA256 hash and filename for the download URL (pipe directly to avoid newline issues in commit messages)
